@@ -1,0 +1,21 @@
+version: '3'
+services:
+  todofrontend:
+    image: todofrontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - todobackend
+    environment:
+      - REACT_APP_API_HOST=todoback
+  todobackend:
+    image: todobackend
+    ports:
+      - 3001:3001
+  todotests:
+    image: todotests
+    depends_on:
+      - todofrontend
+      - todobackend
+    environment:
+      - FRONT_HOST=todofront

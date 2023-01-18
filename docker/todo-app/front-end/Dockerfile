@@ -1,5 +1,6 @@
 FROM node:14
-EXPOSE 3000
 WORKDIR /todo-app-frontend
+EXPOSE 3000
+ADD node_modules.tar.gz .
 COPY . .
 CMD [ "npm", "start" ]
